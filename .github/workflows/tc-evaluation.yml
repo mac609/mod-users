@@ -1,17 +1,19 @@
+
 name: TC Module Evaluation
 
 on:
   workflow_dispatch:
     inputs:
-        repository_url:
+      repository_url:
         description: 'Repository URL to evaluate'
         required: false
         type: string
         default: 'https://github.com/folio-org/mod-users'
       ref:
-        description: 'Git ref to evaluate (defaults to current ref)'
+        description: 'Git ref to evaluate'
         required: false
         type: string
+        default: 'v19.6.2'
       output_format:
         description: 'Report format'
         required: false
@@ -22,7 +24,7 @@ on:
           - html-only
         default: 'both'
       criteria_filter:
-        description: 'Comma-separated criterion IDs (e.g., S001,S002,B005). Leave empty for all.'
+        description: 'Comma-separated criterion IDs; leave empty for all'
         required: false
         type: string
       java_version:
@@ -35,7 +37,6 @@ on:
         required: false
         type: string
         default: '20'
-
 
 jobs:
   evaluate:
